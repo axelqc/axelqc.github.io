@@ -21,7 +21,7 @@ repository               : "axelqc/axelqc.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "images/profile_1.png"
+  avatar           : "profile_1.png"
   name             : "Axel Quiroga Caldera"
   pronouns         : # example: "she/her"  
   bio              : "Short biography for the left-hand sidebar"
