@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "print('Hello there, I'm Axel')"
+title: "<span style="color:lightblue">**print** </span> <span style="color:grey">**(** </span> <span style="color:lightgreen">'Hello there, I'm Axel' </span> <span style="color:grey">**)** </span>"
 author_profile: true
 redirect_from: 
   - /about/
