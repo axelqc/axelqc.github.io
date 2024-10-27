@@ -10,9 +10,26 @@ location: "Cuernavaca, Morelos"
 
 Mathematical model using just-in-time and linear programming to solve a scheduling problem for an editorial which maximizes the utility while penalizing late shipping. The model generates the production plan for the given demand in the established period.
 
-Methodology
+Introduction
 ------
 Bla bla
+
+
+Methodology
+------
+Bla
+
+Results 
+------
+
+Conclusions
+------
+
+Pictures
+------
+![talking](https://axelqc.github.io/images/1688690362423.png)
+
+![diploma](https://axelqc.github.io/images/1688690361919.png)
 
 
 
