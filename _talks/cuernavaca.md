@@ -17,7 +17,13 @@ Bla bla
 
 Methodology
 ------
-Bla
+
+
+| Representation | Meaning | 
+|----------|----------|
+| $x_{ijk}$| Cell 2   |
+| $I_{ij}$    | Cell 5   | 
+
 
 Results 
 ------
