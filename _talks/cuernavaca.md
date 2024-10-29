@@ -76,7 +76,7 @@ It also returns the costs of inventory and production.
 
 Conclusions
 ------
-The problem was simplified by dealing with periods instead of days, from 60 thousand variables to less than 2 thousand, resulting in a fast model. If any changes are required, it only takes a re-adjust of the parameters, and the model will generate another optimized production plan. Another point in favor is that the model can be applied to any company that relies on suppliers and schedules.
+The problem was simplified by dealing with periods instead of days, from 60 thousand variables to less than 2 thousand, resulting in a fast model. If any changes are required, it only takes a re-adjustment of the parameters is all that is needed, and the model will generate another optimized production plan. Another point in favor is that the model can be applied to any company that relies on suppliers and schedules.
 
 
 Pictures
