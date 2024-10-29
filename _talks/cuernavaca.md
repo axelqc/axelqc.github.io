@@ -64,10 +64,20 @@ The model returns a calendar for each supplier with the required quantity of boo
 
 - For supplier 2
 
+
+| Period | Dates                        | Books                           | Quantity                  |
+|--------|------------------------------|---------------------------------|---------------------------|
+| 13      | 2024-05-23 to 2024-06-27     | - Book 2            | - 138<br>- 1088            |
+| 14     | 2024-06-26 to 2024-08-01   | - Book 13                        | - 1500                     |
+
+
+
 It also returns the costs of inventory and production. 
 
 Conclusions
 ------
+The problem was simplified by dealing with periods instead of days, from 60 thousand variables to less than 2 thousand, resulting in a fast model. If any changes are required, it only takes a re-adjust of the parameters, and the model will generate another optimized production plan. Another point in favor is that the model can be applied to any company that relies on suppliers and schedules.
+
 
 Pictures
 ------
