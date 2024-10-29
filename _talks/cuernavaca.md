@@ -29,9 +29,9 @@ It was built with two variables:
 
 And with four parameters:
 
--$$c_{ij}$$ is the Cost to produce book $$i$$.
--$$h$$ is the cost of inventory per book per period.
--$$D_{ij}$$ is the demand from book $$i$$ in period $$j$$.
+- $$c_{ij}$$ is the Cost to produce book $$i$$.
+- $$h$$ is the cost of inventory per book per period.
+- $$D_{ij}$$ is the demand from book $$i$$ in period $$j$$.
 - $$M$$ represents the production capacity from suppliers.
 
 
@@ -42,13 +42,26 @@ $$ \begin{aligned} & \text{minimize} \quad z = \sum_i \sum_j \sum_k x_{ijk} c_{i
 
 
 
-The first restriction is to satisfy the established demand on the established delivery date.
+The first restriction deals with the established demand on the established delivery date.
 
 
 The second restriction deals with the maximum capacity of every supplier.
 
 Results 
 ------
+The model returns a calendar for each supplier with the required quantity of books in a given period. For example:
+- For supplier 1
+| Period | Dates | Books | Quantity |
+|-----------|-----------|-----------|-----------|
+| 5    | 2023-08-19 - 2023-09-19    | - Book 1 -Book 4   | - 138 -249    |
+| 6    | 2023-09-20 - 2023-10-24    | Book 5    | 889    |
+| 7    | 2023-10-25 - 2023-11-28   | - Book 25 - Book 19 - Book 2    | - 112 - 807 - 52    |
+
+
+
+- For supplier 2
+
+It also returns the costs of inventory and production. 
 
 Conclusions
 ------
