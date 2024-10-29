@@ -22,24 +22,29 @@ Methodology
 ------
 The proposed model minimizes production and inventory costs.
 It was built with two variables:
-| Representation | Meaning | 
-|----------|----------|
-| $$x_{ijk}$$| Quantity of books $$i$$ to produce in period $$j$$ by the supplier $$k$$ |
-| $$I_{ij}$$    | Quantity of books $$i$$ to inventory in period $$j$$ | 
+- $$x_{ijk}$$ represents tthe Quantity of books $$i$$ to produce in period $$j$$ by the supplier $$k$$.
+- $$I_{ij}$$ is the quantity of books $$i$$ to inventory in period $$j$$.
+
+
 
 And with four parameters:
-| Representation | Meaning | 
-|----------|----------|
-| $$c_{ij}$$    | Cost to produce book $$i$$   |
-| $$h$$    | Cost of inventory per book per period   | 
-| $$D_{ij}$$    | Demand from book $$i$$ in period $$j$$   | 
-| M    | Production capacity from suppliers| 
+
+-$$c_{ij}$$ is the Cost to produce book $$i$$.
+-$$h$$ is the cost of inventory per book per period.
+-$$D_{ij}$$ is the demand from book $$i$$ in period $$j$$.
+- $$M$$ represents the production capacity from suppliers.
 
 
 The result is the following model:
+
+
 $$ \begin{aligned} & \text{minimize} \quad z = \sum_i \sum_j \sum_k x_{ijk} c_{ij} + \sum_i \sum_j h I_{ij} \\ & \text{subject to} \\ & \quad \sum_k X_{ijk} + I_{ij-1} = D_{ij} + I_{ij}, \quad \forall i, j \\ & \quad \sum_i x_{ijk} \leq M, \quad \forall j, k \end{aligned} $$
 
+
+
 The first restriction is to satisfy the established demand on the established delivery date.
+
+
 The second restriction deals with the maximum capacity of every supplier.
 
 Results 
