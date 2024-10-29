@@ -51,6 +51,8 @@ Results
 ------
 The model returns a calendar for each supplier with the required quantity of books in a given period. For example:
 - For supplier 1
+
+
 | Period | Dates                        | Books                           | Quantity                  |
 |--------|------------------------------|---------------------------------|---------------------------|
 | 5      | 2023-08-19 to 2023-09-19     | - Book 1<br>- Book 4           | - 138<br>- 249            |
