@@ -1,11 +1,11 @@
 ---
-title: 'Blog Post number 2'
-date: 2013-08-14
-permalink: /posts/2013/08/blog-post-2/
+title: 'Why I Chose a Sales Internship: Building Communication and Interpersonal Skills'
+date: 2024-12-4
+permalink: /posts/2024/12/sales-journey/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - Communication
+  - Interpersonal skills
+  - Networking
 ---
 
 This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum and don't have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.
