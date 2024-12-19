@@ -1,6 +1,6 @@
 ---
 title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+excerpt: "Short description of portfolio item number 1<br/><img src='https://www.nomada.news/wp-content/uploads/2019/01/contaminacion-monterrey-calidad-del-aire.jpg'>"
 collection: portfolio
 ---
 
