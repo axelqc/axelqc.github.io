@@ -8,13 +8,13 @@ date: 2023-07-14
 location: "Cuernavaca, Morelos"
 ---
 
-Mathematical model using just-in-time and linear programming to solve a scheduling problem for an editorial which maximizes the utility while penalizing late shipping. The model generates the production plan for the given demand in the established period.
+Mathematical model using just-in-time and linear programming to solve a scheduling problem for an editorial, which maximizes the utility while penalizing late shipping. The model generates the production plan for the given demand in the established period.
 
 Introduction
 ------
-Editorials are crucial for students, when they encounter a problem it’s as simple as grabbing a specialized book and reading through it to get the answer and the reasons behind it. Editorials for universities must meet deadlines aligned with the calendar to stay competitive and remain relevant. To accomplish this, they must establish a production plan dealing with delivery dates, inventory costs, dealing with different suppliers, and maximizing their utility. It may seem difficult to make this happen, but with just-in-time methodology, an optimal production can be created.
+Editorials are crucial for students; when they encounter a problem, it’s as simple as grabbing a specialized book and reading through it to get the answer and the reasons behind it. Editorials for universities must meet deadlines aligned with the calendar to stay competitive and relevant. To accomplish this, they must establish a production plan dealing with delivery dates, inventory costs, dealing with different suppliers, and maximizing their utility. It may seem challenging to make this happen, but an optimal production can be created with a just-in-time methodology.
 
-JIT is the methodology meant to deliver the exact amount of material (books in this case) in the specified time. This can be achieved with linear programming, where a model is proposed to maximize utility and minimize cost while being flexible to adapt to the company’s needs.
+JIT is the methodology meant to deliver the exact amount of material (books, in this case) in the specified time. This can be achieved with linear programming, where a model is proposed to maximize utility and minimize cost while being flexible to adapt to the company’s needs.
 
 
 
@@ -22,14 +22,14 @@ Methodology
 ------
 The proposed model minimizes production and inventory costs.
 It was built with two variables:
-- $$x_{ijk}$$ represents tthe Quantity of books $$i$$ to produce in period $$j$$ by the supplier $$k$$.
+- $$x_{ijk}$$ represents the quantity of books $$i$$ to produce in period $$j$$ by the supplier $$k$$.
 - $$I_{ij}$$ is the quantity of books $$i$$ to inventory in period $$j$$.
 
 
 
 And with four parameters:
 
-- $$c_{ij}$$ is the Cost to produce book $$i$$.
+- $$c_{ij}$$ is the cost to produce book $$i$$.
 - $$h$$ is the cost of inventory per book per period.
 - $$D_{ij}$$ is the demand from book $$i$$ in period $$j$$.
 - $$M$$ represents the production capacity from suppliers.
@@ -76,8 +76,7 @@ It also returns the costs of inventory and production.
 
 Conclusions
 ------
-The problem was simplified by dealing with periods instead of days, from 60 thousand variables to less than 2 thousand, resulting in a fast model. If any changes are required, it only takes a re-adjustment of the parameters is all that is needed, and the model will generate another optimized production plan. Another point in favor is that the model can be applied to any company that relies on suppliers and schedules.
-
+The problem was simplified by dealing with periods instead of days, from 60 thousand variables to less than 2 thousand, resulting in a fast model. If any changes are required, it only takes a re-adjustment of the parameters, which is all that is needed, and the model will generate another optimized production plan. Another point in favor is that the model can be applied to any company that relies on suppliers and schedules.
 
 Pictures
 ------
