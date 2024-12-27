@@ -3,6 +3,7 @@ title: "Secure Website Development for Migrant Shelter"
 excerpt: "The project revolves around developing a secure system to track and manage all migrants while keeping data safe. <br/><img src='https://pbs.twimg.com/media/Ff7h37qXEAM9Yvc.jpg'>"
 collection: portfolio
 ---
+The project revolves around developing a secure system to track and manage all migrants while keeping data safe.
 
 # Problem statement
 ------------------------------------
@@ -81,8 +82,54 @@ To register all the migrants who used the shelter and provide descriptive statis
 ## Migrant Forecast
 Another helpful feature for future planning was incorporating Facebook's forecasting model, Prophet, which estimates how many migrants will come to the shelter in the following days to plan and be prepared with the necessary food and staff. To achieve this, I made a function that counts all the registered migrants on a given day and uses the migrant count per population type (male adults, female adults, male children, female children) as an input for the model to predict $$X$$ given days. Returning an interactive HTML graph with the population type.
 
-<iframe src="https://github.com/axelqc/helper_ozone/blob/main/evolucion_ingresos%20(2).html" width="600" height="373.5"></iframe>
+```python 
+def fit_prophet_model(data, column, dias):
+  if column != 'hombres': 
+      data[column] += np.random.normal(0, data[column].std() * 0.1, size=len(data))
+      df_prophet = data.reset_index().rename(columns={'Fecha ': 'ds', column: 'y'})
 
-# RESULTS
+      cap_value = df_prophet['y'].max() * 1.5  
+      df_prophet['cap'] = cap_value
+
+      model = Prophet(
+          growth="logistic",
+          seasonality_mode='multiplicative',  
+          changepoint_prior_scale=0.5,  d
+          interval_width=0.95  
+      )
+      model.fit(df_prophet)
+      future = model.make_future_dataframe(periods=dias)  
+      future['cap'] = df_prophet['cap'].iloc[0]  
+      forecast = model.predict(future)
+  elif column == 'hombres': # Male behavior is different
+      data[column] += np.random.normal(0, data[column].std() * 0.1, size=len(data))
+      df_prophet = data.reset_index().rename(columns={'Fecha ': 'ds', column: 'y'})
+
+      model = Prophet(
+          growth="linear")
+      model.fit(df_prophet)
+      future = model.make_future_dataframe(periods=dias)  
+      forecast = model.predict(future)
+
+  forecast = forecast[['ds', 'yhat']]
+  return model, forecast
+
+# Store models and predictions
+models = {}
+forecasts = {}
+
+dias = 47 # Number of days
+
+# Train for each column
+for column in df.columns[1:-1]:
+    model, forecast = fit_prophet_model(df, column, dias)
+    models[column] = model
+    forecasts[column] = forecast
+total_forecast = pd.DataFrame({'ds': forecasts[list(forecasts.keys())[0]]['ds']})
+total_forecast['yhat'] = sum(forecast['yhat'] for forecast in forecasts.values())f
+```
+
+![HTML image](https://github.com/axelqc/helper_ozone/blob/main/newplot%20(1).png)
+# Results
 ------------------------------
 empty
