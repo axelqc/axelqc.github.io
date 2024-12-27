@@ -28,14 +28,14 @@ My main contributions were connecting to the PostgreSQL database functions to in
 # Background
 -----------------------
 Before planning and making an interface, a cybersecurity framework needs to be established and followed; since much information can be displayed, we need to segment and determine user permissions. The framework chosen was the CIA Triad, which sets three primary rules:
-**Confidentiality**: Only authorized users can access and modify data.
-**Integrity**: Data correctness is a must. No data should be modified by accident or with malicious intentions.
-**Availability**: Privileged users can access data whenever it is needed.
+- **Confidentiality**: Only authorized users can access and modify data.
+- **Integrity**: Data correctness is a must. No data should be modified by accident or with malicious intentions.
+- **Availability**: Privileged users can access data whenever it is needed.
 
 With the framework in mind, the first approach to determining the roles of users:
-**User (level 1)**: Only Migrant registration and migrant lookup.
-**Service (level 2)**: Migrant registration, migrant lookup, and register additional services.
-**Admin (level 3)**: Migrant registration, migrant lookup, registering additional services, generating reports, modifying user roles, and changing migrant status.
+- **User (level 1)**: Only Migrant registration and migrant lookup.
+- **Service (level 2)**: Migrant registration, migrant lookup, and register additional services.
+- **Admin (level 3)**: Migrant registration, migrant lookup, registering additional services, generating reports, modifying user roles, and changing migrant status.
 
 After determining the framework, research was made to determine a suitable, robust encryption algorithm. AES was the most appropriate. It is a symmetric encryption algorithm, and because of its rapid encryption and decryption, it has proven resistant to many attacks. It is considered the most secure encryption algorithm available today.
 
