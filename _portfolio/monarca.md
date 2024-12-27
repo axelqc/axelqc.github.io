@@ -1,6 +1,6 @@
 ---
 title: "Secure Website Development for Migrant Shelter"
-excerpt: "The project revolves around developing a secure system to track and manage all migrants while keeping data safe. <br/><img src='https://pbs.twimg.com/media/Ff7h37qXEAM9Yvc.jpg'>"
+excerpt: "The project revolves around developing a secure system to track and manage all migrants while keeping data safe. <br/><img src='https://www.iom.int/sites/g/files/tmzbdl2616/files/styles/large_900_image_crop/public/press_release/media/2023-09/20230703_pacaraima_roraima_brasil_36_nueva.jpg?h=bc09f3d1&itok=5Y4hmkAk'>"
 collection: portfolio
 ---
 The project revolves around developing a secure system to track and manage all migrants while keeping data safe.
@@ -9,13 +9,13 @@ The project revolves around developing a secure system to track and manage all m
 ------------------------------------
 Migrant Shelters are crucial for attending to and providing services for migrants who have traveled a long way to reach a safe destination. The shelters contain sensitive information, including migrants' identities and needs, and catastrophic consequences may occur if data is not protected.
 
-Casa Monacarca wanted to combine technology and cryptography to develop a platform that ensures data safety and integrity. 
+The shelter wanted to combine technology and cryptography to develop a platform that ensures data safety and integrity. 
 
 # Introduction
 -----------------------
 Massive data circulation has caused uncertainty among organizations. It has raised discussions of the importance of implementing solutions to protect personal data; cryptographic algorithms have been created to safeguard data, and they have been around for many years. For instance, Julius Caesar is known for encrypting military messages.
 
-Casa Monarca, a migrant shelter, is aware of the implications of data leakage and the disastrous consequences it can bring to the migrants and their families, so they are taking action to implement a robust platform at a low cost. 
+The migrant shelter, is aware of the implications of data leakage and the disastrous consequences it can bring to the migrants and their families, so they are taking action to implement a robust platform at a low cost. 
 
 The platform's primary goal is to keep track of registered migrants while protecting their information. The functionalities of the platform are registering a new migrant with a registration form provided, looking at a migrant to determine if they passed by the shelter, registering additional services that can be required by migrants, such as psychological, legal, and educational services, generating reports to know how many migrants are currently in the house and generate a prediction to estimate the food and staff required, change migrant status to inactive when they leave the shelter, and finally modify users in case they gain or lose privileges.
 
