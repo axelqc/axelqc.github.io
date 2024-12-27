@@ -129,7 +129,7 @@ total_forecast = pd.DataFrame({'ds': forecasts[list(forecasts.keys())[0]]['ds']}
 total_forecast['yhat'] = sum(forecast['yhat'] for forecast in forecasts.values())f
 ```
 
-![HTML image](https://github.com/axelqc/helper_ozone/blob/main/newplot%20(1).png)
+![HTML image](https://github.com/axelqc/helper_ozone/blob/main/newplot%20(1).png?raw=true)
 # Results
 ------------------------------
 empty
