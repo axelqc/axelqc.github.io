@@ -39,12 +39,8 @@ With the framework in mind, the first approach to determining the roles of users
 
 After determining the framework, research was made to determine a suitable, robust encryption algorithm. AES was the most appropriate. It is a symmetric encryption algorithm, and because of its rapid encryption and decryption, it has proven resistant to many attacks. It is considered the most secure encryption algorithm available today.
 
-# Theoretical framework
------------------------------
-empty
 
-
-# Function explanation 
+# Functions explanation 
 ---------------------------
 ## Database connection 
 The project was developed using PostgreSQL because of the excellent capabilities and the facilitation of integration with Python using the psycopg2 library and .ini files to keep the configuration hidden from the code. Once the connection has been made, queries can be made to the desired DB. I proposed having different databases in case one gets leaked, and the hackers access a tiny part of the information. With the idea of having different databases, I had to generate a random ID to establish their relationship and make the necessary joins. Due to random IV (initialization vector), the encryption will turn out differently even though the ID is the same.
@@ -61,12 +57,16 @@ def gen_id():
 AES can handle different keys, but it is more secure if the key has more bits. So, to apply the AES, a 256-bit key was created by defining a 50-character long password, followed by applying SHA-256 for the password, ensuring that the resulting hash can't be reversed to get the password. Afterward, PBKDF2 with 10,000 iterations was applied to the hash and a salt to generate a 256-bit key, which was stored in a .env file as a base64 to hide it from the code.
 
 ## Encryption function
+The encryption function was created on a separate script and then imported to the main code to hide it. The function receives the plain text or it can also recieve images and transforms them into bytes, and the generated key. After receiving both parameters, it generates a random initialization vector of 16 bytes. It adds padding to the plain text to ensure it is 16 bytes. Then, the cipher is created with the key and initialization vector and utilized to encrypt the text. It returns both the initialization vector and the ciphertext. The IV is insufficient to decrypt the text, so there is no need to hide it.
+
 ## Decryption function
+This function was also created separately and imported into the main script. It receives the key and the encrypted text (IV + ciphertext), which are then separated. A decryptor is created to retrieve the padded plaintext, which is then removed to obtain the plain text. Since we are dealing with large volumes of encrypted data, this function has to decrypt every row and column from the data frame to decrypt everything.
+
 
 ## Migrant lookup with Levenshtein distance
-A key function of the platform is being able to look up a migrant, whether to add services (psychological, educational, legal), register departure, or just check if they passed through the shelter. This is because they usually disappear while getting to their destination, and their relatives want to check where they got lost. 
+A key function of the platform is looking up a migrant, whether to add services (psychological, educational, legal), register departure, or check if they passed through the shelter. This is because they usually disappear while arriving, and their relatives want to check where they got lost. 
 
-In the lookup function, two fields are required: complete name and birth date. However, a problem arises: names and surnames are problematic when typing them down because of accents or the way of writing them. To solve this problem, I implemented the Levinstein distance with all the records from the database to obtain the name with the minimum distance. After finding the name, the birth date is the final filter to determine if that migrant is registered.
+In the lookup function, two fields are required: complete name and birth date. However, a problem arises: names and surnames are problematic when typing them down because of accents or the way they are written. To solve this problem, I implemented the Levinstein distance with all the records from the database to obtain the name with the minimum distance; this is helpful because it will return the most similar names registered, if any. After finding the "correct" name, the birth date is the final filter to determine if that migrant is registered.
 
 ## Add services
 The services required by migrants may vary and are very specific, ranging from person to person. To implement this, it combines the lookup function to add services to a registered migrant. The selected services are then encrypted and sent to a different database using the ID as the key to establish relations between databases. 
@@ -76,8 +76,6 @@ Another key feature is keeping track of the migrants inside the shelter; in the 
 
 ## PowerBI
 To register all the migrants who used the shelter and provide descriptive statistics in real time, an aggregated value was added with a PowerBI dashboard that connects to the encrypted DB. With Python integration, the decryption function was used to produce a report.
- 
-<iframe title="MIGRANTES_FINAL (1)" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiOTg5NDE0MDctNjI3YS00YzlkLTlhYTgtYWMyZGU0Nzc5MzM2IiwidCI6ImM2NWEzZWE2LTBmN2MtNDAwYi04OTM0LTVhNmRjMTcwNTY0NSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
 
 ## Migrant Forecast
 Another helpful feature for future planning was incorporating Facebook's forecasting model, Prophet, which estimates how many migrants will come to the shelter in the following days to plan and be prepared with the necessary food and staff. To achieve this, I made a function that counts all the registered migrants on a given day and uses the migrant count per population type (male adults, female adults, male children, female children) as an input for the model to predict $$X$$ given days. Returning an interactive HTML graph with the population type.
@@ -129,7 +127,60 @@ total_forecast = pd.DataFrame({'ds': forecasts[list(forecasts.keys())[0]]['ds']}
 total_forecast['yhat'] = sum(forecast['yhat'] for forecast in forecasts.values())f
 ```
 
-![HTML image](https://github.com/axelqc/helper_ozone/blob/main/newplot%20(1).png?raw=true)
+
 # Results
-------------------------------
-empty
+
+
+## Log in
+To log in, one must have an account, and an administrator must add his password to authorize and create it.
+
+![login](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture.PNG?raw=true)
+
+
+## User view
+The user with the lowest permissions can only register migrants and look them up.
+![user](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture2.PNG?raw=true)
+
+When clicking on register new migrant, a form must be filled out to register them.
+![form](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture3.PNG?raw=true)
+
+When clicking on migrant lookup and filling in both parameters, for example, lookup for "Danyel," it retrieves "Daniel" because of the Levenshtein function. If found, it will return the decrypted information on the person.
+
+![lookup](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture4.PNG?raw=true)
+
+![result](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture45.jpg?raw=true)
+
+
+
+## Service view
+Moving on to the second type of user, it has one more option available: the service tab, which can add additional required services: therapy, education, legal, and jobs.
+![level2](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture6.PNG?raw=true)
+
+ An example is shown of adding services for somebody.
+
+First, lookup.
+![service_menu](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture7.PNG?raw=true)
+
+Confirming its the right person.
+![confirm](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture8.PNG?raw=true)
+
+Second, add more services.
+![more services](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture9.PNG?raw=true)
+
+Third, slect the type of service.
+![selected](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture10.PNG?raw=true)
+
+Finally checked that the changes were applied.
+![added](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture11.PNG?raw=true)
+
+## Admin view
+The admin has many more options, including descriptive statistics, predictions, user management, and migrant checkout.
+
+![adminview](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture12.PNG?raw=true)
+
+Embeded PowerBI report.
+
+![powerbi](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture13.PNG?raw=true)
+
+Embeded predictions.
+![prophet](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture14.PNG?raw=true)
