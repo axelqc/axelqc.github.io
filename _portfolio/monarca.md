@@ -171,7 +171,7 @@ Third, slect the type of service.
 ![selected](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture10.PNG?raw=true)
 
 Finally checked that the changes were applied.
-![added](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture11.PNG?raw=true)
+![added](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture11.png?raw=true)
 
 ## Admin view
 The admin has many more options, including descriptive statistics, predictions, user management, and migrant checkout.
