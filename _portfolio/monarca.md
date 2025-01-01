@@ -59,6 +59,9 @@ AES can handle different keys, but it is more secure if the key has more bits. S
 ## Encryption function
 The encryption function was created on a separate script and then imported to the main code to hide it. The function receives the plain text or it can also recieve images and transforms them into bytes, and the generated key. After receiving both parameters, it generates a random initialization vector of 16 bytes. It adds padding to the plain text to ensure it is 16 bytes. Then, the cipher is created with the key and initialization vector and utilized to encrypt the text. It returns both the initialization vector and the ciphertext. The IV is insufficient to decrypt the text, so there is no need to hide it.
 
+Encrypted data in DB:
+![results](https://github.com/axelqc/helper_ozone/blob/main/capturas/Capture15.PNG?raw=true)
+
 ## Decryption function
 This function was also created separately and imported into the main script. It receives the key and the encrypted text (IV + ciphertext), which are then separated. A decryptor is created to retrieve the padded plaintext, which is then removed to obtain the plain text. Since we are dealing with large volumes of encrypted data, this function has to decrypt every row and column from the data frame to decrypt everything.
 
