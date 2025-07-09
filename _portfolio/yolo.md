@@ -17,22 +17,61 @@ This system will not only aid in understanding traffic patterns under normal and
 
 # Solution
 -------------------
-## Vehicle Detection and Counting using YOLO
+## 1. Vehicle Detection and Counting using YOLO
+At the core of the solution is the YOLO (You Only Look Once) object detection algorithm, implemented in Python. YOLO was selected for its speed and accuracy in real-time object detection tasks. The model was fine-tuned or configured to recognize and count three specific vehicle types: cars, motorcycles, and trucks.
 
-## Automated Batch Processing with os and Temporary File Handling
+For each video:
 
-## Aggregation and Reporting
+- The YOLO model was applied frame-by-frame to detect vehicles.
 
-## Interactive Web Dashboard
+- Object tracking methods were used to prevent double-counting.
 
+- Detected vehicles were classified and stored along with their timestamps and frame location.
+
+## 2. Automated Batch Processing with os and Temporary File Handling
+Given the large number of videos, the system was designed to process zipped video archives automatically:
+
+- Python's os and zipfile modules were used to locate and extract ZIP files temporarily.
+
+- Once extracted, videos were processed one by one.
+
+- After analysis, both the temporary video files and their folders were automatically deleted to conserve disk space and maintain system performance.
+
+## 3. Aggregation and Reporting
+After processing each video:
+
+- Results (vehicle counts, types, camera ID, timestamp, etc.) were stored in structured format using Pandas.
+
+- Data from all processed videos was appended to a master Excel file, which served as a centralized report for further analysis.
+
+- The file included summaries and raw detection logs, ready to be used by analysts or urban planners.
+
+## 4. Interactive Web Dashboard
+To visualize the results and support decision-making:
+
+- A web application was developed using technologies such as HTML, CSS, JavaScript, and Leaflet.js.
+
+- A map interface showed the geographic locations of each surveillance camera.
+
+- Users could click on camera markers to view specific statistics from that location.
+
+- The dashboard featured interactive graphs (e.g., bar charts, time series) to display:
+
+    * Vehicle type distribution
+
+    * Peak traffic hours
+
+   * Vehicle counts per location and time
+
+This interface provided an intuitive way to explore traffic patterns and identify potential bottlenecks or critical routes—vital information in emergency planning and disaster response.
 
 
 # Results
 
 ## Vehicle Counting in YOLO
 Here's a little video:
-\href{https://youtu.be/YMBiUZrCN34}{Vehicle Count} 
+\url{https://youtu.be/YMBiUZrCN34}
 
 ## Web dashboard
 Here's the demo:
-\href{https://youtu.be/lKX7TLb4vC0}{Demo} 
+\url{https://youtu.be/lKX7TLb4vC0}
